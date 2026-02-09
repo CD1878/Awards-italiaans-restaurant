@@ -15,30 +15,33 @@ export const RotatedImage: React.FC<RotatedImageProps> = ({
   className = "",
   parallaxSpeed = 0
 }) => {
-  const [offset, setOffset] = useState(0);
-  const [tilt, setTilt] = useState({ x: 0, y: 0 });
-  const ref = useRef<HTMLDivElement>(null);
+  const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
-    if (parallaxSpeed === 0) return;
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+        }
+      },
+      { threshold: 0.1 } // Trigger when 10% visible
+    );
 
-    const handleScroll = () => {
-      if (!ref.current) return;
-      const rect = ref.current.getBoundingClientRect();
-      const scrollProgress = (window.innerHeight - rect.top) / window.innerHeight;
-      if (scrollProgress > 0 && scrollProgress < 2) {
-        setOffset(scrollProgress * parallaxSpeed * 20);
+    if (ref.current) {
+      observer.observe(ref.current);
+    }
+
+    return () => {
+      if (ref.current) {
+        observer.unobserve(ref.current);
       }
     };
-
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, [parallaxSpeed]);
+  }, []);
 
   return (
     <div
       ref={ref}
-      className={`relative shadow-lg transition-all duration-700 ease-out hover:scale-105 animate-fade-in ${className}`}
+      className={`relative shadow-xl transition-all duration-700 ease-out hover:scale-105 ${isVisible ? 'animate-fade-in opacity-100' : 'opacity-0'} ${className}`}
       style={{
         transform: `rotate(${rotation}deg) translateY(${offset}px)`,
         // transformStyle: 'preserve-3d' // Removed 3D persistence for simpler effect
