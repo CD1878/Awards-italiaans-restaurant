@@ -27,7 +27,7 @@ export const Popup: React.FC = () => {
                 {/* Left: Image */}
                 <div className="w-full md:w-1/2 h-64 md:h-auto relative">
                     <img
-                        src="https://images.unsplash.com/photo-1595856552599-52be8373d327?q=80&w=800&auto=format&fit=crop"
+                        src="/images/king.png"
                         alt="Royal Chiel"
                         className="w-full h-full object-cover"
                     />
