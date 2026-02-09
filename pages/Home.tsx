@@ -3,8 +3,11 @@ import { Button } from '../components/Button';
 import { RotatedImage } from '../components/RotatedImage';
 import { IMAGES } from '../constants';
 import { Link } from 'react-router-dom';
+import { useLanguage } from '../context/LanguageContext';
 
 export const Home: React.FC = () => {
+    const { t } = useLanguage();
+
     return (
         <main>
             {/* HERO SECTION */}
@@ -12,9 +15,9 @@ export const Home: React.FC = () => {
                 <div className="container mx-auto">
                     <div className="max-w-4xl mx-auto text-center mb-16 md:mb-24 animate-fade-in">
                         <h1 className="font-serif text-4xl md:text-6xl lg:text-7xl leading-tight mb-6">
-                            fine dining met een Italiaanse twist
+                            {t.home.hero.title}
                         </h1>
-                        <p className="text-xl md:text-2xl text-diodona-green/80 mb-2">AMSTERDAM</p>
+                        <p className="text-xl md:text-2xl text-diodona-green/80 mb-2">{t.home.hero.subtitle}</p>
                     </div>
 
                     {/* Staggered Images Grid */}
@@ -58,49 +61,49 @@ export const Home: React.FC = () => {
             <section className="py-12 md:py-32 bg-diodona-green text-diodona-beige transition-colors duration-1000">
                 <div className="container mx-auto px-4 md:px-12">
                     <div className="max-w-4xl mx-auto space-y-12">
-                        <h2 className="font-serif text-4xl md:text-5xl mb-8">CANALETTO</h2>
+                        <h2 className="font-serif text-4xl md:text-5xl mb-8">{t.home.intro.title}</h2>
                         <p className="font-serif text-xl md:text-2xl leading-relaxed opacity-90">
-                            In het mooiste steegje van Amsterdam vind je Canaletto. Bij ons kun je vanaf 12:00 terecht voor een fijne <Link to="/lunch" className="underline hover:opacity-70 transition-opacity">lunch</Link>, een hapje en een drankje met zon rond borreluur en een spetterend <Link to="/diner" className="underline hover:opacity-70 transition-opacity">diner</Link> of bruisende borrel aan onze prachtige bar.
+                            {t.home.intro.textPart1} <Link to="/lunch" className="underline hover:opacity-70 transition-opacity">{t.home.intro.linkLunch}</Link>{t.home.intro.textPart2} <Link to="/diner" className="underline hover:opacity-70 transition-opacity">{t.home.intro.linkDiner}</Link> {t.home.intro.textPart3}
                         </p>
 
                         <Link to="/reserveren">
                             <Button className="bg-diodona-beige text-diodona-green hover:bg-white mt-4 mb-2">
-                                Reserveer een tafel
+                                {t.home.intro.button}
                             </Button>
                         </Link>
 
                         <p className="text-lg opacity-80">
-                            ★★★★★ beoordeeld met een 9,2 The Fork
+                            {t.home.intro.rating}
                         </p>
 
                         <div className="grid md:grid-cols-3 gap-8 pt-12">
                             <div>
-                                <h4 className="font-serif text-xl mb-4 uppercase tracking-wide">Onze Lunchkaart</h4>
+                                <h4 className="font-serif text-xl mb-4 uppercase tracking-wide">{t.home.cards.lunch.title}</h4>
                                 <p className="opacity-80 mb-6">
-                                    Al eens gedacht aan een lunch bij Canaletto? Onze zorgvuldig samengestelde en veelzijdige lunchkaart laat jou kennis maken met onze Italiaanse keuken.
+                                    {t.home.cards.lunch.text}
                                 </p>
                                 <Link to="/lunch" className="inline-block border-b border-diodona-beige pb-1 hover:opacity-70 transition-opacity">
-                                    Onze Lunchkaart →
+                                    {t.home.cards.lunch.link}
                                 </Link>
                             </div>
 
                             <div>
-                                <h4 className="font-serif text-xl mb-4 uppercase tracking-wide">Onze Dinerkaart</h4>
+                                <h4 className="font-serif text-xl mb-4 uppercase tracking-wide">{t.home.cards.diner.title}</h4>
                                 <p className="opacity-80 mb-6">
-                                    Kom bij ons een heerlijke avond Italiaans tafelen. Bekijk alvast onze dinerkaart en laat je verrassen door een variëteit aan authentieke Italiaanse gerechten.
+                                    {t.home.cards.diner.text}
                                 </p>
                                 <Link to="/diner" className="inline-block border-b border-diodona-beige pb-1 hover:opacity-70 transition-opacity">
-                                    Onze Dinerkaart →
+                                    {t.home.cards.diner.link}
                                 </Link>
                             </div>
 
                             <div>
-                                <h4 className="font-serif text-xl mb-4 uppercase tracking-wide">Onze Wijnen</h4>
+                                <h4 className="font-serif text-xl mb-4 uppercase tracking-wide">{t.home.cards.wines.title}</h4>
                                 <p className="opacity-80 mb-6">
-                                    Canaletto heeft een zeer complete en specifiek samengestelde wijnkaart. Bij ieder gerecht is een bijpassende wijn geselecteerd. Ook bieden wij een wijn arrangement aan.
+                                    {t.home.cards.wines.text}
                                 </p>
                                 <Link to="/wijnen" className="inline-block border-b border-diodona-beige pb-1 hover:opacity-70 transition-opacity">
-                                    Onze Wijnkaart →
+                                    {t.home.cards.wines.link}
                                 </Link>
                             </div>
                         </div>
@@ -121,22 +124,22 @@ export const Home: React.FC = () => {
                                     className="aspect-[2/3] w-full"
                                 />
                                 <div className="absolute -bottom-10 -right-10 md:-right-20 bg-white p-6 shadow-xl max-w-xs transform rotate-2 hidden md:block">
-                                    <p className="font-script text-3xl text-diodona-green mb-2">Chi ci conosce,</p>
-                                    <p className="font-script text-3xl text-diodona-green pl-8">torna sempre</p>
+                                    <p className="font-script text-3xl text-diodona-green mb-2">{t.home.kitchen.quote1}</p>
+                                    <p className="font-script text-3xl text-diodona-green pl-8">{t.home.kitchen.quote2}</p>
                                 </div>
                             </div>
                         </div>
 
                         <div className="w-full md:w-1/2 space-y-8 text-center md:text-left">
                             <h2 className="font-serif text-4xl md:text-5xl text-diodona-green">
-                                ONZE KEUKEN
+                                {t.home.kitchen.title}
                             </h2>
                             <p className="text-lg text-diodona-green/80 leading-relaxed max-w-lg mx-auto md:mx-0">
-                                Chef Mattia Pedroni staat na jarenlang gewerkt te hebben in top restaurants in onder andere Londen en New York nu bij Canaletto aan het roer. Met zijn Italiaanse roots voorziet hij je van elke dag vers gemaakte focaccia en ravioli naar grootmoeders recept. Ook voor een gevulde salade, mooi stuk vlees of vegetarisch gerecht ben je bij ons aan het goede adres.
+                                {t.home.kitchen.text}
                             </p>
                             <Link to="/diner">
                                 <Button>
-                                    Onze Dinerkaart
+                                    {t.home.kitchen.button}
                                 </Button>
                             </Link>
                         </div>
@@ -149,14 +152,14 @@ export const Home: React.FC = () => {
                 <div className="container mx-auto px-4">
                     <div className="max-w-4xl mx-auto text-center space-y-8">
                         <h2 className="font-serif text-4xl md:text-5xl text-diodona-green">
-                            HARTJE AMSTERDAM
+                            {t.home.heart.title}
                         </h2>
                         <p className="text-lg text-diodona-green/80 leading-relaxed">
-                            Canaletto ligt in het hart van Amsterdam. De Begijnensteeg, een sfeervolle en pittoreske zijstraat van de Kalverstraat. We hebben een fijn terras waar je zowel voor <Link to="/lunch" className="underline hover:opacity-70">lunch</Link> als <Link to="/diner" className="underline hover:opacity-70">diner</Link> heerlijk kunt tafelen. Nieuwsgierig? Proef dan even Onze Sfeer.
+                            {t.home.heart.textPart1} <Link to="/lunch" className="underline hover:opacity-70">{t.home.heart.linkLunch}</Link> {t.home.heart.textPart2} <Link to="/diner" className="underline hover:opacity-70">{t.home.heart.linkDiner}</Link> {t.home.heart.textPart3}
                         </p>
                         <Link to="/sfeer">
                             <Button variant="outline">
-                                Proef Onze Sfeer
+                                {t.home.heart.button}
                             </Button>
                         </Link>
                     </div>
@@ -168,14 +171,14 @@ export const Home: React.FC = () => {
                 <div className="container mx-auto px-4">
                     <div className="max-w-4xl mx-auto text-center space-y-8">
                         <h2 className="font-serif text-4xl md:text-5xl text-diodona-green">
-                            ONZE PRODUCTEN
+                            {t.home.products.title}
                         </h2>
                         <p className="text-lg text-diodona-green/80 leading-relaxed">
-                            Kwaliteit en duurzaamheid staan bij ons voorop bij de inkoop van onze producten. Zoveel mogelijk biologisch en bij lokale leveranciers zoals boerderij Lindenhof, onze bevriende kaasboer van de Zuivelhoeve Elandsgracht en vishandel Jan van As.
+                            {t.home.products.text}
                         </p>
                         <Link to="/reserveren">
                             <Button>
-                                Reserveer een tafel
+                                {t.home.products.button}
                             </Button>
                         </Link>
                     </div>
@@ -186,24 +189,24 @@ export const Home: React.FC = () => {
             <section className="py-12 md:py-32 bg-diodona-green text-diodona-beige">
                 <div className="container mx-auto px-4">
                     <div className="max-w-4xl mx-auto">
-                        <h2 className="font-serif text-4xl md:text-5xl mb-12 text-center">ONZE LOCATIE</h2>
+                        <h2 className="font-serif text-4xl md:text-5xl mb-12 text-center">{t.home.location.title}</h2>
 
                         <div className="grid md:grid-cols-2 gap-12">
                             <div className="space-y-4">
-                                <h3 className="font-serif text-2xl">Adres</h3>
+                                <h3 className="font-serif text-2xl">{t.home.location.addressTitle}</h3>
                                 <p className="text-lg">
-                                    Herengracht 123<br />
-                                    1015 Amsterdam
+                                    {t.home.location.address}<br />
+                                    {t.home.location.city}
                                 </p>
 
-                                <h3 className="font-serif text-2xl mt-8">Openingstijden</h3>
+                                <h3 className="font-serif text-2xl mt-8">{t.home.location.openingTitle}</h3>
                                 <p className="text-lg">
-                                    Maandag – Zondag<br />
-                                    12:00 – 23:00<br />
-                                    <span className="text-sm opacity-80">keuken open tot 22:00</span>
+                                    {t.home.location.days}<br />
+                                    {t.home.location.hours}<br />
+                                    <span className="text-sm opacity-80">{t.home.location.kitchenNote}</span>
                                 </p>
 
-                                <h3 className="font-serif text-2xl mt-8">Telefoonnummer</h3>
+                                <h3 className="font-serif text-2xl mt-8">{t.home.location.phoneTitle}</h3>
                                 <p className="text-lg">
                                     <a href="tel:0201234567" className="hover:underline">020 123 4567</a>
                                 </p>
