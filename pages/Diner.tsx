@@ -1,18 +1,21 @@
 import React from 'react';
 import { Button } from '../components/Button';
 import { Link } from 'react-router-dom';
+import { useLanguage } from '../context/LanguageContext';
 
 export const Diner: React.FC = () => {
+    const { t } = useLanguage();
+
     return (
         <main>
             <section className="pt-32 pb-20 md:pt-48 md:pb-32 px-4 bg-diodona-beige">
                 <div className="container mx-auto max-w-5xl">
                     <h1 className="font-serif text-5xl md:text-7xl text-diodona-green mb-8 text-center">
-                        Onze Dinerkaart
+                        {t.diner.title}
                     </h1>
 
                     <p className="text-xl text-diodona-green/80 text-center mb-16 max-w-3xl mx-auto">
-                        Kom bij ons een heerlijke avond Italiaans tafelen. Laat je verrassen door een variëteit aan authentieke Italiaanse gerechten.
+                        {t.diner.intro}
                     </p>
 
                     {/* Menu Sections */}
@@ -20,7 +23,7 @@ export const Diner: React.FC = () => {
                         {/* Antipasti */}
                         <div>
                             <h2 className="font-serif text-3xl text-diodona-green mb-8 pb-4 border-b-2 border-diodona-green/20">
-                                Antipasti
+                                {t.diner.sections.antipasti}
                             </h2>
                             <div className="space-y-6">
                                 <MenuItem
@@ -49,7 +52,7 @@ export const Diner: React.FC = () => {
                         {/* Primi Piatti */}
                         <div>
                             <h2 className="font-serif text-3xl text-diodona-green mb-8 pb-4 border-b-2 border-diodona-green/20">
-                                Primi Piatti
+                                {t.diner.sections.primi}
                             </h2>
                             <div className="space-y-6">
                                 <MenuItem
@@ -83,7 +86,7 @@ export const Diner: React.FC = () => {
                         {/* Secondi Piatti */}
                         <div>
                             <h2 className="font-serif text-3xl text-diodona-green mb-8 pb-4 border-b-2 border-diodona-green/20">
-                                Secondi Piatti
+                                {t.diner.sections.secondi}
                             </h2>
                             <div className="space-y-6">
                                 <MenuItem
@@ -112,7 +115,7 @@ export const Diner: React.FC = () => {
                         {/* Contorni */}
                         <div>
                             <h2 className="font-serif text-3xl text-diodona-green mb-8 pb-4 border-b-2 border-diodona-green/20">
-                                Contorni
+                                {t.diner.sections.contorni}
                             </h2>
                             <div className="space-y-6">
                                 <MenuItem
@@ -136,7 +139,7 @@ export const Diner: React.FC = () => {
                         {/* Dolci */}
                         <div>
                             <h2 className="font-serif text-3xl text-diodona-green mb-8 pb-4 border-b-2 border-diodona-green/20">
-                                Dolci
+                                {t.diner.sections.dolci}
                             </h2>
                             <div className="space-y-6">
                                 <MenuItem
@@ -166,7 +169,7 @@ export const Diner: React.FC = () => {
                     <div className="text-center mt-16">
                         <Link to="/reserveren">
                             <Button>
-                                Reserveer een tafel
+                                {t.header.bookTable}
                             </Button>
                         </Link>
                     </div>

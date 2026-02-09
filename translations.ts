@@ -84,6 +84,27 @@ export const translations = {
                 hours: '12:00 – 23:00',
                 kitchenNote: 'keuken open tot 22:00',
                 phoneTitle: 'Telefoonnummer'
+            },
+            lunch: {
+                title: 'Onze Lunchkaart',
+                intro: 'Al eens gedacht aan een lunch bij Canaletto? Onze zorgvuldig samengestelde en veelzijdige lunchkaart laat jou kennis maken met onze Italiaanse keuken.',
+                sections: {
+                    antipasti: 'Antipasti',
+                    pasta: 'Pasta Fresca',
+                    insalate: 'Insalate',
+                    dolci: 'Dolci'
+                }
+            },
+            diner: {
+                title: 'Onze Dinerkaart',
+                intro: 'Kom bij ons een heerlijke avond Italiaans tafelen. Laat je verrassen door een variëteit aan authentieke Italiaanse gerechten.',
+                sections: {
+                    antipasti: 'Antipasti',
+                    primi: 'Primi Piatti',
+                    secondi: 'Secondi Piatti',
+                    contorni: 'Contorni',
+                    dolci: 'Dolci'
+                }
             }
         }
     },
@@ -170,6 +191,27 @@ export const translations = {
                 hours: '12:00 – 23:00',
                 kitchenNote: 'kitchen open until 22:00',
                 phoneTitle: 'Phone Number'
+            },
+            lunch: {
+                title: 'Our Lunch Menu',
+                intro: 'Ever thought about lunch at Canaletto? Our carefully composed and versatile lunch menu introduces you to our Italian cuisine.',
+                sections: {
+                    antipasti: 'Antipasti',
+                    pasta: 'Pasta Fresca',
+                    insalate: 'Salads',
+                    dolci: 'Desserts'
+                }
+            },
+            diner: {
+                title: 'Our Dinner Menu',
+                intro: 'Join us for a wonderful evening of Italian dining. Be surprised by a variety of authentic Italian dishes.',
+                sections: {
+                    antipasti: 'Antipasti',
+                    primi: 'First Courses',
+                    secondi: 'Main Courses',
+                    contorni: 'Side Dishes',
+                    dolci: 'Desserts'
+                }
             }
         }
     }

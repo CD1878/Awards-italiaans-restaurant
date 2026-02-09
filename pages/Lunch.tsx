@@ -1,18 +1,21 @@
 import React from 'react';
 import { Button } from '../components/Button';
 import { Link } from 'react-router-dom';
+import { useLanguage } from '../context/LanguageContext';
 
 export const Lunch: React.FC = () => {
+    const { t } = useLanguage();
+
     return (
         <main>
             <section className="pt-32 pb-20 md:pt-48 md:pb-32 px-4 bg-diodona-beige">
                 <div className="container mx-auto max-w-5xl">
                     <h1 className="font-serif text-5xl md:text-7xl text-diodona-green mb-8 text-center">
-                        Onze Lunchkaart
+                        {t.lunch.title}
                     </h1>
 
                     <p className="text-xl text-diodona-green/80 text-center mb-16 max-w-3xl mx-auto">
-                        Al eens gedacht aan een lunch bij Canaletto? Onze zorgvuldig samengestelde en veelzijdige lunchkaart laat jou kennis maken met onze Italiaanse keuken.
+                        {t.lunch.intro}
                     </p>
 
                     {/* Menu Sections */}
@@ -20,7 +23,7 @@ export const Lunch: React.FC = () => {
                         {/* Antipasti */}
                         <div>
                             <h2 className="font-serif text-3xl text-diodona-green mb-8 pb-4 border-b-2 border-diodona-green/20">
-                                Antipasti
+                                {t.lunch.sections.antipasti}
                             </h2>
                             <div className="space-y-6">
                                 <MenuItem
@@ -44,7 +47,7 @@ export const Lunch: React.FC = () => {
                         {/* Pasta */}
                         <div>
                             <h2 className="font-serif text-3xl text-diodona-green mb-8 pb-4 border-b-2 border-diodona-green/20">
-                                Pasta Fresca
+                                {t.lunch.sections.pasta}
                             </h2>
                             <div className="space-y-6">
                                 <MenuItem
@@ -73,7 +76,7 @@ export const Lunch: React.FC = () => {
                         {/* Insalate */}
                         <div>
                             <h2 className="font-serif text-3xl text-diodona-green mb-8 pb-4 border-b-2 border-diodona-green/20">
-                                Insalate
+                                {t.lunch.sections.insalate}
                             </h2>
                             <div className="space-y-6">
                                 <MenuItem
@@ -92,7 +95,7 @@ export const Lunch: React.FC = () => {
                         {/* Dolci */}
                         <div>
                             <h2 className="font-serif text-3xl text-diodona-green mb-8 pb-4 border-b-2 border-diodona-green/20">
-                                Dolci
+                                {t.lunch.sections.dolci}
                             </h2>
                             <div className="space-y-6">
                                 <MenuItem
@@ -112,7 +115,7 @@ export const Lunch: React.FC = () => {
                     <div className="text-center mt-16">
                         <Link to="/reserveren">
                             <Button>
-                                Reserveer een tafel
+                                {t.header.bookTable}
                             </Button>
                         </Link>
                     </div>
