@@ -35,35 +35,13 @@ export const RotatedImage: React.FC<RotatedImageProps> = ({
     return () => window.removeEventListener('scroll', handleScroll);
   }, [parallaxSpeed]);
 
-  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
-    if (!ref.current) return;
-
-    const rect = ref.current.getBoundingClientRect();
-    const x = e.clientX - rect.left;
-    const y = e.clientY - rect.top;
-
-    const xPct = x / rect.width;
-    const yPct = y / rect.height;
-
-    const xRot = (yPct - 0.5) * 20; // Max rotation X (up/down)
-    const yRot = (xPct - 0.5) * -20; // Max rotation Y (left/right)
-
-    setTilt({ x: xRot, y: yRot });
-  };
-
-  const handleMouseLeave = () => {
-    setTilt({ x: 0, y: 0 });
-  };
-
   return (
     <div
       ref={ref}
-      onMouseMove={handleMouseMove}
-      onMouseLeave={handleMouseLeave}
-      className={`relative shadow-xl transition-all duration-200 ease-out hover:scale-[1.02] ${className}`}
+      className={`relative shadow-md transition-all duration-700 ease-out hover:scale-105 animate-fade-in ${className}`}
       style={{
-        transform: `perspective(1000px) rotate(${rotation}deg) translateY(${offset}px) rotateX(${tilt.x}deg) rotateY(${tilt.y}deg)`,
-        transformStyle: 'preserve-3d'
+        transform: `rotate(${rotation}deg) translateY(${offset}px)`,
+        // transformStyle: 'preserve-3d' // Removed 3D persistence for simpler effect
       }}
     >
       <img
@@ -71,12 +49,10 @@ export const RotatedImage: React.FC<RotatedImageProps> = ({
         alt={alt}
         className="w-full h-full object-cover block"
         loading="lazy"
-        style={{ transform: 'translateZ(20px)' }} // Pop out effect
       />
-      {/* Glossy overlay for realism */}
+      {/* Light overlay for depth */}
       <div
-        className="absolute inset-0 bg-gradient-to-tr from-white/20 to-transparent opacity-0 hover:opacity-100 transition-opacity duration-300 pointer-events-none"
-        style={{ transform: 'translateZ(30px)' }}
+        className="absolute inset-0 bg-black/5 opacity-0 hover:opacity-100 transition-opacity duration-500 pointer-events-none"
       />
     </div>
   );
