@@ -16,15 +16,17 @@ export const RotatedImage: React.FC<RotatedImageProps> = ({
   parallaxSpeed = 0
 }) => {
   const [isVisible, setIsVisible] = useState(false);
+  const ref = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
           setIsVisible(true);
+          if (ref.current) observer.unobserve(ref.current); // Only trigger once
         }
       },
-      { threshold: 0.1 } // Trigger when 10% visible
+      { threshold: 0.1 }
     );
 
     if (ref.current) {
@@ -32,9 +34,7 @@ export const RotatedImage: React.FC<RotatedImageProps> = ({
     }
 
     return () => {
-      if (ref.current) {
-        observer.unobserve(ref.current);
-      }
+      observer.disconnect();
     };
   }, []);
 
@@ -43,8 +43,7 @@ export const RotatedImage: React.FC<RotatedImageProps> = ({
       ref={ref}
       className={`relative shadow-xl transition-all duration-700 ease-out hover:scale-105 ${isVisible ? 'animate-fade-in opacity-100' : 'opacity-0'} ${className}`}
       style={{
-        transform: `rotate(${rotation}deg) translateY(${offset}px)`,
-        // transformStyle: 'preserve-3d' // Removed 3D persistence for simpler effect
+        transform: `rotate(${rotation}deg)`,
       }}
     >
       <img
