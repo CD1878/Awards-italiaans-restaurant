@@ -23,6 +23,16 @@ export const LanguageSelector: React.FC = () => {
                 <img src="https://flagcdn.com/w20/gb.png" alt="ENG" className="w-5 h-auto shadow-sm rounded-[2px]" />
                 <span className="text-xs font-sans text-diodona-green">ENG</span>
             </button>
+
+            <span className="text-diodona-green/30 text-xs">|</span>
+
+            <button
+                onClick={() => setLanguage('PT')}
+                className={`flex items-center gap-1 transition-opacity hover:opacity-100 ${language === 'PT' ? 'opacity-100 font-bold' : 'opacity-40'}`}
+            >
+                <img src="https://flagcdn.com/w20/pt.png" alt="PT" className="w-5 h-auto shadow-sm rounded-[2px]" />
+                <span className="text-xs font-sans text-diodona-green">PT</span>
+            </button>
         </div>
     );
 };

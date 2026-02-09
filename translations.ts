@@ -1,4 +1,4 @@
-export type Language = 'NL' | 'ENG';
+export type Language = 'NL' | 'ENG' | 'PT';
 
 export const translations = {
     NL: {
@@ -212,6 +212,113 @@ export const translations = {
                 secondi: 'Main Courses',
                 contorni: 'Side Dishes',
                 dolci: 'Desserts'
+            }
+        }
+    },
+    PT: {
+        header: {
+            menu: 'Menu',
+            groups: 'Grupos',
+            gallery: 'Galeria',
+            contact: 'Contacto',
+            reserve: 'Reservar',
+            bookTable: 'Reservar uma mesa',
+            privacy: 'Privacidade',
+            cookies: 'Cookies'
+        },
+        common: {
+            chielKing: 'Chiel é Rei',
+            officialAnnouncement: 'Anúncio Oficial',
+            learnMore: 'Mais Informações',
+            openMenu: 'Menu'
+        },
+        announcement: {
+            text: 'Chiel é Rei'
+        },
+        home: {
+            hero: {
+                title: 'fine dining com um toque italiano',
+                subtitle: 'AMESTERDÃO'
+            },
+            intro: {
+                title: 'CANALETTO',
+                textPart1: 'No beco mais bonito de Amesterdão encontra o Canaletto. Junte-se a nós a partir das 12:00 para um delicioso',
+                linkLunch: 'almoço',
+                textPart2: ', um petisco e uma bebida ao sol durante a hora do aperitivo, e um deslumbrante',
+                linkDiner: 'jantar',
+                textPart3: 'ou uma bebida espumante no nosso belo bar.',
+                button: 'Reservar uma mesa',
+                rating: '★★★★★ classificado com 9,2 no The Fork'
+            },
+            cards: {
+                lunch: {
+                    title: 'O Nosso Menu de Almoço',
+                    text: 'Já pensou em almoçar no Canaletto? O nosso menu de almoço cuidadosamente composto e versátil apresenta-lhe a nossa cozinha italiana.',
+                    link: 'O Nosso Menu de Almoço →'
+                },
+                diner: {
+                    title: 'O Nosso Menu de Jantar',
+                    text: 'Junte-se a nós para uma maravilhosa noite de gastronomia italiana. Confira o nosso menu de jantar e surpreenda-se com uma variedade de pratos italianos autênticos.',
+                    link: 'O Nosso Menu de Jantar →'
+                },
+                wines: {
+                    title: 'Os Nossos Vinhos',
+                    text: 'O Canaletto tem uma carta de vinhos muito completa e especificamente composta. Um vinho adequado foi selecionado para cada prato. Também oferecemos um acordo de vinhos.',
+                    link: 'A Nossa Carta de Vinhos →'
+                }
+            },
+            kitchen: {
+                title: 'A NOSSA COZINHA',
+                text: 'Depois de trabalhar durante anos em restaurantes de topo em Londres e Nova Iorque, o Chef Mattia Pedroni está agora ao leme do Canaletto. Com as suas raízes italianas, ele fornece-lhe focaccia e ravioli frescos diariamente, de acordo com a receita da avó. Também está no lugar certo para uma salada recheada, um belo pedaço de carne ou um prato vegetariano.',
+                button: 'O Nosso Menu de Jantar',
+                quote1: 'Chi ci conosce,',
+                quote2: 'torna sempre'
+            },
+            heart: {
+                title: 'CORAÇÃO DE AMESTERDÃO',
+                textPart1: 'O Canaletto está localizado no coração de Amesterdão. A Begijnensteeg, uma rua lateral atmosférica e pitoresca da Kalverstraat. Temos um belo terraço onde pode desfrutar tanto de',
+                linkLunch: 'almoço',
+                textPart2: 'como de',
+                linkDiner: 'jantar',
+                textPart3: '. Curioso? Prove a Nossa Atmosfera.',
+                button: 'Prove a Nossa Atmosfera'
+            },
+            products: {
+                title: 'OS NOSSOS PRODUTOS',
+                text: 'Qualidade e sustentabilidade são primordiais na compra dos nossos produtos. O máximo possível orgânico e de fornecedores locais como a quinta Lindenhof, o nosso amigável queijeiro da Zuivelhoeve Elandsgracht e a peixaria Jan van As.',
+                button: 'Reservar uma mesa'
+            },
+            location: {
+                title: 'A NOSSA LOCALIZAÇÃO',
+                addressTitle: 'Morada',
+                address: 'Herengracht 123',
+                city: '1015 Amesterdão',
+                openingTitle: 'Horário de Funcionamento',
+                days: 'Segunda – Domingo',
+                hours: '12:00 – 23:00',
+                kitchenNote: 'cozinha aberta até às 22:00',
+                phoneTitle: 'Número de Telefone'
+            }
+        },
+        lunch: {
+            title: 'O Nosso Menu de Almoço',
+            intro: 'Já pensou em almoçar no Canaletto? O nosso menu de almoço cuidadosamente composto e versátil apresenta-lhe a nossa cozinha italiana.',
+            sections: {
+                antipasti: 'Antipasti',
+                pasta: 'Pasta Fresca',
+                insalate: 'Saladas',
+                dolci: 'Sobremesas'
+            }
+        },
+        diner: {
+            title: 'O Nosso Menu de Jantar',
+            intro: 'Junte-se a nós para uma maravilhosa noite de gastronomia italiana. Surpreenda-se com uma variedade de pratos italianos autênticos.',
+            sections: {
+                antipasti: 'Antipasti',
+                primi: 'Primeiros Pratos',
+                secondi: 'Pratos Principais',
+                contorni: 'Acompanhamentos',
+                dolci: 'Sobremesas'
             }
         }
     }
