@@ -38,8 +38,8 @@ export const MENU_ITEMS: MenuItem[] = [
 export const IMAGES = {
   hero1: "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?q=80&w=2000&auto=format&fit=crop", // Restaurant interior
   hero2: "https://images.unsplash.com/photo-1559339352-11d035aa65de?q=80&w=1200&auto=format&fit=crop", // Food detail
-  hero3: "https://images.unsplash.com/photo-1466978913421-dad93866169d?q=80&w=1600&auto=format&fit=crop", // Amsterdam canal
-  portrait: "https://images.unsplash.com/photo-1556910103-1c02745a30bf?q=80&w=1000&auto=format&fit=crop", // Chef/Staff
+  hero3: "https://images.unsplash.com/photo-1513694203232-719a280e022f?q=80&w=1600&auto=format&fit=crop", // Amsterdam canal view (Fixed)
+  portrait: "https://images.unsplash.com/photo-1583394293214-28ded15ee548?q=80&w=1000&auto=format&fit=crop", // Chef/Staff (Fixed)
   dish1: "https://images.unsplash.com/photo-1595295333158-4742f28fbd85?q=80&w=800&auto=format&fit=crop", // Pasta
   dish2: "https://images.unsplash.com/photo-1563379926898-05f4575a45d8?q=80&w=800&auto=format&fit=crop", // Dessert
 };
