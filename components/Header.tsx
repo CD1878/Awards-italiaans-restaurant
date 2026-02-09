@@ -8,6 +8,7 @@ import { LanguageSelector } from './LanguageSelector';
 export const Header: React.FC = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [showAnnouncement, setShowAnnouncement] = useState(true);
   const { t } = useLanguage();
 
   useEffect(() => {
@@ -22,9 +23,18 @@ export const Header: React.FC = () => {
     <>
       <header className="fixed top-0 left-0 right-0 z-50 flex flex-col">
         {/* Announcement Bar */}
-        <div className="bg-diodona-green w-full text-center py-2 text-xs font-bold tracking-[0.2em] text-diodona-beige uppercase z-50 bg-opacity-100">
-          {t.announcement.text}
-        </div>
+        {showAnnouncement && (
+          <div className="bg-diodona-green w-full text-center py-2 text-xs font-bold tracking-[0.2em] text-diodona-beige uppercase z-50 bg-opacity-100 relative">
+            {t.announcement.text}
+            <button
+              onClick={() => setShowAnnouncement(false)}
+              className="absolute right-4 top-1/2 transform -translate-y-1/2 p-1 hover:bg-white/10 rounded-full transition-colors"
+              aria-label="Close announcement"
+            >
+              <X size={14} />
+            </button>
+          </div>
+        )}
 
         {/* Main Header Content */}
         <div className={`w-full transition-all duration-300 ${isScrolled ? 'py-2 bg-diodona-beige/95 backdrop-blur-sm shadow-sm' : 'py-6 bg-transparent'}`}>
