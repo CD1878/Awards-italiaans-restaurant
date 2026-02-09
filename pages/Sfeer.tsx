@@ -43,10 +43,10 @@ export const Sfeer: React.FC = () => {
                         </div>
                         <div className="aspect-[4/3]">
                             <RotatedImage
-                                src="https://images.unsplash.com/photo-1550966871-3ed3c47e7421?q=80&w=1200&auto=format&fit=crop"
-                                alt="Gezellige hoek"
+                                src="/images/king.png"
+                                alt="Royal Chiel"
                                 rotation={0.5}
-                                className="w-full h-full"
+                                className="w-full h-full object-cover"
                             />
                         </div>
                     </div>
