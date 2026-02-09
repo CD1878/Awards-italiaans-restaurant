@@ -38,7 +38,7 @@ export const RotatedImage: React.FC<RotatedImageProps> = ({
   return (
     <div
       ref={ref}
-      className={`relative shadow-md transition-all duration-700 ease-out hover:scale-105 animate-fade-in ${className}`}
+      className={`relative shadow-lg transition-all duration-700 ease-out hover:scale-105 animate-fade-in ${className}`}
       style={{
         transform: `rotate(${rotation}deg) translateY(${offset}px)`,
         // transformStyle: 'preserve-3d' // Removed 3D persistence for simpler effect
