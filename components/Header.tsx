@@ -58,6 +58,7 @@ export const Header: React.FC = () => {
               {/* Desktop Navigation */}
               <div className="hidden md:flex items-center gap-8 mr-4">
                 <Link to="/diner" className="text-diodona-green hover:opacity-70 transition-opacity font-serif">{t.header.menu}</Link>
+                <Link to="/evenementen" className="text-diodona-green hover:opacity-70 transition-opacity font-serif">Evenementen</Link>
                 <Link to="/groepen" className="text-diodona-green hover:opacity-70 transition-opacity font-serif">{t.header.groups}</Link>
                 <Link to="/sfeer" className="text-diodona-green hover:opacity-70 transition-opacity font-serif">{t.header.gallery}</Link>
                 <Link to="/contact" className="text-diodona-green hover:opacity-70 transition-opacity font-serif">{t.header.contact}</Link>
@@ -122,6 +123,9 @@ export const Header: React.FC = () => {
               </Link>
               <Link to="/wijnen" onClick={() => setIsMenuOpen(false)} className="text-xl md:text-2xl font-serif text-diodona-green hover:translate-x-2 transition-transform duration-300 block">
                 Wijnen
+              </Link>
+              <Link to="/evenementen" onClick={() => setIsMenuOpen(false)} className="text-xl md:text-2xl font-serif text-diodona-green hover:translate-x-2 transition-transform duration-300 block">
+                Evenementen
               </Link>
               <Link to="/sfeer" onClick={() => setIsMenuOpen(false)} className="text-xl md:text-2xl font-serif text-diodona-green hover:translate-x-2 transition-transform duration-300 block">
                 {t.header.gallery}

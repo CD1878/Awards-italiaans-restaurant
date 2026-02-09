@@ -106,6 +106,17 @@ export const translations = {
                 contorni: 'Contorni',
                 dolci: 'Dolci'
             }
+        },
+        events: {
+            title: 'Evenementen',
+            subtitle: 'Bijzondere momenten bij Canaletto',
+            valentines: {
+                title: 'Valentijnsdag',
+                date: '14 Februari 2026',
+                description: 'Vier de liefde met een romantisch 4-gangen menu speciaal samengesteld voor Valentijnsdag. Geniet van een intieme avond met kaarslicht, live muziek en uitzonderlijke Italiaanse gerechten.',
+                price: '€75 per persoon',
+                reserveButton: 'Reserveer Hier'
+            }
         }
     },
     ENG: {
@@ -213,6 +224,17 @@ export const translations = {
                 contorni: 'Side Dishes',
                 dolci: 'Desserts'
             }
+        },
+        events: {
+            title: 'Events',
+            subtitle: 'Special moments at Canaletto',
+            valentines: {
+                title: 'Valentine\'s Day',
+                date: 'February 14, 2026',
+                description: 'Celebrate love with a romantic 4-course menu specially curated for Valentine\'s Day. Enjoy an intimate evening with candlelight, live music, and exceptional Italian cuisine.',
+                price: '€75 per person',
+                reserveButton: 'Reserve Here'
+            }
         }
     },
     PT: {
@@ -319,6 +341,17 @@ export const translations = {
                 secondi: 'Pratos Principais',
                 contorni: 'Acompanhamentos',
                 dolci: 'Sobremesas'
+            }
+        },
+        events: {
+            title: 'Eventos',
+            subtitle: 'Momentos especiais no Canaletto',
+            valentines: {
+                title: 'Dia dos Namorados',
+                date: '14 de Fevereiro de 2026',
+                description: 'Celebre o amor com um menu romântico de 4 pratos especialmente preparado para o Dia dos Namorados. Desfrute de uma noite íntima com luz de velas, música ao vivo e cozinha italiana excepcional.',
+                price: '€75 por pessoa',
+                reserveButton: 'Reservar Aqui'
             }
         }
     }
