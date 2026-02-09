@@ -10,6 +10,7 @@ import { Sfeer } from './pages/Sfeer';
 import { Groepen } from './pages/Groepen';
 import { Contact } from './pages/Contact';
 import { Reserveren } from './pages/Reserveren';
+import { Evenementen } from './pages/Evenementen';
 import { Popup } from './components/Popup';
 import { CookieBanner } from './components/Widgets';
 import { LanguageProvider } from './context/LanguageContext';
@@ -33,6 +34,7 @@ const App: React.FC = () => {
             <Route path="/groepen" element={<Groepen />} />
             <Route path="/contact" element={<Contact />} />
             <Route path="/reserveren" element={<Reserveren />} />
+            <Route path="/evenementen" element={<Evenementen />} />
           </Routes>
 
           <Footer />
