@@ -53,13 +53,26 @@ export const Header: React.FC = () => {
                 <Link to="/contact" className="text-diodona-green hover:opacity-70 transition-opacity font-serif">{t.header.contact}</Link>
               </div>
 
-              {/* Language Switcher */}
-              <LanguageSelector />
+              {/* Language Switcher (Desktop Only) */}
+              <div className="hidden md:block">
+                <LanguageSelector />
+              </div>
 
-              {/* Menu Button */}
-              <Button onClick={() => setIsMenuOpen(true)}>
-                {t.common.openMenu}
-              </Button>
+              {/* Mobile Hamburger Menu Icon */}
+              <button
+                className="md:hidden text-diodona-green focus:outline-none hover:rotate-180 transition-transform duration-300"
+                onClick={() => setIsMenuOpen(true)}
+                aria-label="Open menu"
+              >
+                <Menu size={32} />
+              </button>
+
+              {/* Desktop Menu Button */}
+              <div className="hidden md:block">
+                <Button onClick={() => setIsMenuOpen(true)}>
+                  {t.common.openMenu}
+                </Button>
+              </div>
             </div>
           </div>
         </div>
