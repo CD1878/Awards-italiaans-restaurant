@@ -2,10 +2,13 @@ import React, { useState, useEffect } from 'react';
 import { ShoppingBag, Menu, X } from 'lucide-react';
 import { Button } from './Button';
 import { Link } from 'react-router-dom';
+import { useLanguage } from '../context/LanguageContext';
+import { LanguageSelector } from './LanguageSelector';
 
 export const Header: React.FC = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const { t } = useLanguage();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -17,45 +20,47 @@ export const Header: React.FC = () => {
 
   return (
     <>
-      <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled ? 'py-2 bg-diodona-beige/95 backdrop-blur-sm shadow-sm' : 'py-6 bg-transparent'}`}>
-        <div className="container mx-auto px-4 md:px-8 flex justify-between items-center">
-          {/* Logo */}
-          <div className="flex-shrink-0">
-            <Link to="/" className="block group">
-              <div className="flex flex-col items-center">
-                <span className={`font-serif text-2xl md:text-3xl font-bold tracking-tight text-diodona-green transition-transform duration-500 ${isScrolled ? 'scale-90' : 'scale-100'}`}>
-                  Canaletto
-                </span>
-                <span className={`text-[10px] uppercase tracking-[0.2em] text-diodona-green/80 transition-opacity duration-300 ${isScrolled ? 'opacity-0 h-0 overflow-hidden' : 'opacity-100'}`}>
-                  Amsterdam
-                </span>
-              </div>
-            </Link>
-          </div>
+      <header className="fixed top-0 left-0 right-0 z-50 flex flex-col">
+        {/* Announcement Bar */}
+        <div className="bg-diodona-green w-full text-center py-2 text-xs font-bold tracking-[0.2em] text-diodona-beige uppercase z-50 bg-opacity-100">
+          {t.announcement.text}
+        </div>
 
-          {/* Actions */}
-          <div className="flex items-center gap-4">
-            {/* Desktop Navigation */}
-            <div className="hidden md:flex items-center gap-8 mr-4">
-              <Link to="/diner" className="text-diodona-green hover:opacity-70 transition-opacity font-serif">Menu</Link>
-              <Link to="/groepen" className="text-diodona-green hover:opacity-70 transition-opacity font-serif">Groepen</Link>
-              <Link to="/sfeer" className="text-diodona-green hover:opacity-70 transition-opacity font-serif">Gallerij</Link>
-              <Link to="/contact" className="text-diodona-green hover:opacity-70 transition-opacity font-serif">Contact</Link>
+        {/* Main Header Content */}
+        <div className={`w-full transition-all duration-300 ${isScrolled ? 'py-2 bg-diodona-beige/95 backdrop-blur-sm shadow-sm' : 'py-6 bg-transparent'}`}>
+          <div className="container mx-auto px-4 md:px-8 flex justify-between items-center">
+            {/* Logo */}
+            <div className="flex-shrink-0">
+              <Link to="/" className="block group">
+                <div className="flex flex-col items-center">
+                  <span className={`font-serif text-2xl md:text-3xl font-bold tracking-tight text-diodona-green transition-transform duration-500 ${isScrolled ? 'scale-90' : 'scale-100'}`}>
+                    Canaletto
+                  </span>
+                  <span className={`text-[10px] uppercase tracking-[0.2em] text-diodona-green/80 transition-opacity duration-300 ${isScrolled ? 'opacity-0 h-0 overflow-hidden' : 'opacity-100'}`}>
+                    Amsterdam
+                  </span>
+                </div>
+              </Link>
             </div>
 
-            {/* Cart Icon (Hidden on mobile usually, but kept for fidelity) */}
-            <button className="hidden md:flex items-center gap-2 text-diodona-green hover:opacity-70 transition-opacity">
-              <div className="relative">
-                <ShoppingBag size={20} />
-                <span className="absolute -top-1 -right-1 flex h-3 w-3 items-center justify-center rounded-full bg-diodona-green text-[8px] text-white">0</span>
+            {/* Actions */}
+            <div className="flex items-center gap-4">
+              {/* Desktop Navigation */}
+              <div className="hidden md:flex items-center gap-8 mr-4">
+                <Link to="/diner" className="text-diodona-green hover:opacity-70 transition-opacity font-serif">{t.header.menu}</Link>
+                <Link to="/groepen" className="text-diodona-green hover:opacity-70 transition-opacity font-serif">{t.header.groups}</Link>
+                <Link to="/sfeer" className="text-diodona-green hover:opacity-70 transition-opacity font-serif">{t.header.gallery}</Link>
+                <Link to="/contact" className="text-diodona-green hover:opacity-70 transition-opacity font-serif">{t.header.contact}</Link>
               </div>
-              <span className="text-sm font-medium">€ 0,00</span>
-            </button>
 
-            {/* Menu Button */}
-            <Button onClick={() => setIsMenuOpen(true)}>
-              Menu
-            </Button>
+              {/* Language Switcher */}
+              <LanguageSelector />
+
+              {/* Menu Button */}
+              <Button onClick={() => setIsMenuOpen(true)}>
+                {t.common.openMenu}
+              </Button>
+            </div>
           </div>
         </div>
       </header>
@@ -71,6 +76,11 @@ export const Header: React.FC = () => {
           </button>
 
           <div className="flex flex-col justify-center items-center h-full px-4 text-center space-y-8">
+            {/* Mobile Language Selector */}
+            <div className="absolute top-6 left-8">
+              <LanguageSelector />
+            </div>
+
             <div className="max-w-2xl mx-auto mb-8">
               <h3 className="font-serif text-2xl md:text-3xl text-diodona-green leading-relaxed">
                 Canaletto è <a href="#" className="underline decoration-1 underline-offset-4 hover:text-diodona-accent transition-colors">tradizione</a>,
@@ -85,22 +95,22 @@ export const Header: React.FC = () => {
                 Lunch
               </Link>
               <Link to="/diner" onClick={() => setIsMenuOpen(false)} className="text-xl md:text-2xl font-serif text-diodona-green hover:translate-x-2 transition-transform duration-300 block">
-                Diner
+                {t.header.menu} (Diner)
               </Link>
               <Link to="/wijnen" onClick={() => setIsMenuOpen(false)} className="text-xl md:text-2xl font-serif text-diodona-green hover:translate-x-2 transition-transform duration-300 block">
                 Wijnen
               </Link>
               <Link to="/sfeer" onClick={() => setIsMenuOpen(false)} className="text-xl md:text-2xl font-serif text-diodona-green hover:translate-x-2 transition-transform duration-300 block">
-                Sfeer
+                {t.header.gallery}
               </Link>
               <Link to="/groepen" onClick={() => setIsMenuOpen(false)} className="text-xl md:text-2xl font-serif text-diodona-green hover:translate-x-2 transition-transform duration-300 block">
-                Groepen
+                {t.header.groups}
               </Link>
               <Link to="/contact" onClick={() => setIsMenuOpen(false)} className="text-xl md:text-2xl font-serif text-diodona-green hover:translate-x-2 transition-transform duration-300 block">
-                Contact
+                {t.header.contact}
               </Link>
               <Link to="/reserveren" onClick={() => setIsMenuOpen(false)} className="text-xl md:text-2xl font-serif text-diodona-green hover:translate-x-2 transition-transform duration-300 block">
-                Reserveer een tafel
+                {t.header.bookTable}
               </Link>
             </nav>
 

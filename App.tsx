@@ -10,27 +10,35 @@ import { Sfeer } from './pages/Sfeer';
 import { Groepen } from './pages/Groepen';
 import { Contact } from './pages/Contact';
 import { Reserveren } from './pages/Reserveren';
+import { Popup } from './components/Popup';
+import { CookieBanner } from './components/Widgets';
+import { LanguageProvider } from './context/LanguageContext';
 
 const App: React.FC = () => {
   return (
-    <Router>
-      <div className="font-sans text-diodona-green bg-diodona-beige overflow-x-hidden selection:bg-diodona-green selection:text-white">
-        <Header />
+    <LanguageProvider>
+      <Router>
+        <div className="font-sans text-diodona-green bg-diodona-beige overflow-x-hidden selection:bg-diodona-green selection:text-white">
+          <Popup />
+          <CookieBanner />
+          {/* LanguageWidget removed in favor of Header selector */}
+          <Header />
 
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/lunch" element={<Lunch />} />
-          <Route path="/diner" element={<Diner />} />
-          <Route path="/wijnen" element={<Wijnen />} />
-          <Route path="/sfeer" element={<Sfeer />} />
-          <Route path="/groepen" element={<Groepen />} />
-          <Route path="/contact" element={<Contact />} />
-          <Route path="/reserveren" element={<Reserveren />} />
-        </Routes>
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/lunch" element={<Lunch />} />
+            <Route path="/diner" element={<Diner />} />
+            <Route path="/wijnen" element={<Wijnen />} />
+            <Route path="/sfeer" element={<Sfeer />} />
+            <Route path="/groepen" element={<Groepen />} />
+            <Route path="/contact" element={<Contact />} />
+            <Route path="/reserveren" element={<Reserveren />} />
+          </Routes>
 
-        <Footer />
-      </div>
-    </Router>
+          <Footer />
+        </div>
+      </Router>
+    </LanguageProvider>
   );
 };
 
