@@ -57,7 +57,7 @@ export const Contact: React.FC = () => {
                                     <label className="block text-diodona-green mb-2 font-medium">Naam</label>
                                     <input
                                         type="text"
-                                        className="w-full px-4 py-3 border border-diodona-green/20 rounded focus:outline-none focus:border-diodona-green transition-colors"
+                                        className="w-full px-4 py-3 border border-diodona-green/20 rounded focus:outline-none focus:border-diodona-green focus:ring-1 focus:ring-diodona-green transition-all duration-300"
                                         placeholder="Uw naam"
                                     />
                                 </div>
@@ -66,7 +66,7 @@ export const Contact: React.FC = () => {
                                     <label className="block text-diodona-green mb-2 font-medium">Email</label>
                                     <input
                                         type="email"
-                                        className="w-full px-4 py-3 border border-diodona-green/20 rounded focus:outline-none focus:border-diodona-green transition-colors"
+                                        className="w-full px-4 py-3 border border-diodona-green/20 rounded focus:outline-none focus:border-diodona-green focus:ring-1 focus:ring-diodona-green transition-all duration-300"
                                         placeholder="uw@email.nl"
                                     />
                                 </div>
@@ -75,7 +75,7 @@ export const Contact: React.FC = () => {
                                     <label className="block text-diodona-green mb-2 font-medium">Telefoon</label>
                                     <input
                                         type="tel"
-                                        className="w-full px-4 py-3 border border-diodona-green/20 rounded focus:outline-none focus:border-diodona-green transition-colors"
+                                        className="w-full px-4 py-3 border border-diodona-green/20 rounded focus:outline-none focus:border-diodona-green focus:ring-1 focus:ring-diodona-green transition-all duration-300"
                                         placeholder="06 12345678"
                                     />
                                 </div>
@@ -84,7 +84,7 @@ export const Contact: React.FC = () => {
                                     <label className="block text-diodona-green mb-2 font-medium">Bericht</label>
                                     <textarea
                                         rows={5}
-                                        className="w-full px-4 py-3 border border-diodona-green/20 rounded focus:outline-none focus:border-diodona-green transition-colors resize-none"
+                                        className="w-full px-4 py-3 border border-diodona-green/20 rounded focus:outline-none focus:border-diodona-green focus:ring-1 focus:ring-diodona-green transition-all duration-300 resize-none"
                                         placeholder="Uw bericht..."
                                     />
                                 </div>

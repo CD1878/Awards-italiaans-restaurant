@@ -12,7 +12,7 @@ export const Evenementen: React.FC = () => {
             <section className="pt-32 pb-20 md:pt-48 md:pb-32 px-4 bg-diodona-beige">
                 <div className="container mx-auto max-w-4xl">
                     <div className="text-center mb-16">
-                        <h1 className="font-serif text-5xl md:text-7xl text-diodona-green mb-4">
+                        <h1 className="font-serif text-5xl md:text-7xl text-diodona-green mb-4 tracking-wide">
                             {t.events.title}
                         </h1>
                         <p className="text-xl text-diodona-green/70 font-serif italic">
@@ -23,7 +23,7 @@ export const Evenementen: React.FC = () => {
                     {/* Events Timeline */}
                     <div className="space-y-8">
                         {/* Valentine's Day Event */}
-                        <div className="relative bg-white rounded-sm shadow-xl overflow-hidden hover:shadow-2xl transition-shadow duration-300 animate-fade-in">
+                        <div className="relative bg-white/90 backdrop-blur-sm rounded-sm shadow-xl overflow-hidden hover:shadow-2xl transition-all duration-300 animate-fade-in border border-white/50">
                             {/* Event Header with Icon */}
                             <div className="absolute top-0 left-0 w-full h-2 bg-gradient-to-r from-red-400 via-pink-400 to-red-400"></div>
 

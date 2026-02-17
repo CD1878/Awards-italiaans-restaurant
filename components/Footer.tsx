@@ -15,7 +15,7 @@ export const Footer: React.FC = () => {
                 href="https://maps.google.com"
                 target="_blank"
                 rel="noreferrer"
-                className="text-diodona-green hover:underline font-serif text-lg"
+                className="text-diodona-green hover:underline font-serif text-lg transition-colors duration-300"
               >
                 Herengracht 123 • 1015 Amsterdam
               </a>
@@ -31,21 +31,21 @@ export const Footer: React.FC = () => {
           <div className="flex flex-col items-center justify-center space-y-4">
             <h2 className="font-serif text-4xl text-diodona-green font-bold">Canaletto</h2>
             <span className="text-xs uppercase tracking-[0.3em] text-diodona-green">Dal 1998</span>
-            <img src="https://picsum.photos/seed/illustration/100/100" alt="Decoration" className="w-16 h-16 opacity-50 grayscale" />
+            <img src="https://picsum.photos/seed/illustration/100/100" alt="Decoration" className="w-16 h-16 opacity-50 grayscale border-[6px] border-white rounded-full bg-white" />
           </div>
 
           {/* Column 3: Contact & Socials */}
           <div className="space-y-6 flex flex-col md:items-end">
             <div className="text-diodona-green md:text-right">
-              <a href="mailto:info@canaletto.nl" className="block hover:underline">info@canaletto.nl</a>
-              <a href="tel:+31201234567" className="block hover:underline">+31 20 123 4567</a>
+              <a href="mailto:info@canaletto.nl" className="block hover:underline transition-colors duration-300">info@canaletto.nl</a>
+              <a href="tel:+31201234567" className="block hover:underline transition-colors duration-300">+31 20 123 4567</a>
             </div>
 
             <div className="flex gap-4 justify-center md:justify-end text-diodona-green">
-              <a href="#" className="hover:scale-110 transition-transform"><Instagram size={20} /></a>
-              <a href="#" className="hover:scale-110 transition-transform"><Facebook size={20} /></a>
-              <a href="#" className="hover:scale-110 transition-transform"><MessageCircle size={20} /></a>
-              <a href="#" className="hover:scale-110 transition-transform"><Linkedin size={20} /></a>
+              <a href="#" className="hover:scale-110 transition-transform duration-300"><Instagram size={20} /></a>
+              <a href="#" className="hover:scale-110 transition-transform duration-300"><Facebook size={20} /></a>
+              <a href="#" className="hover:scale-110 transition-transform duration-300"><MessageCircle size={20} /></a>
+              <a href="#" className="hover:scale-110 transition-transform duration-300"><Linkedin size={20} /></a>
             </div>
           </div>
         </div>
@@ -55,9 +55,9 @@ export const Footer: React.FC = () => {
             <p>CANALETTO AMSTERDAM B.V.<br />KVK 12345678 • BTW NL123456789B01</p>
           </div>
           <div className="flex gap-6">
-            <a href="#" className="hover:text-diodona-green">Privacy Policy</a>
-            <a href="#" className="hover:text-diodona-green">Cookie Policy</a>
-            <a href="#" className="hover:text-diodona-green">Terms</a>
+            <a href="#" className="hover:text-diodona-green transition-colors duration-300">Privacy Policy</a>
+            <a href="#" className="hover:text-diodona-green transition-colors duration-300">Cookie Policy</a>
+            <a href="#" className="hover:text-diodona-green transition-colors duration-300">Terms</a>
           </div>
           <div>
             Designed by <span className="font-semibold">ReplicaAI</span>

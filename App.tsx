@@ -6,6 +6,7 @@ import { Home } from './pages/Home';
 import { Lunch } from './pages/Lunch';
 import { Diner } from './pages/Diner';
 import { Wijnen } from './pages/Wijnen';
+import { Dranken } from './pages/Dranken';
 import { Sfeer } from './pages/Sfeer';
 import { Groepen } from './pages/Groepen';
 import { Contact } from './pages/Contact';
@@ -29,7 +30,9 @@ const App: React.FC = () => {
             <Route path="/" element={<Home />} />
             <Route path="/lunch" element={<Lunch />} />
             <Route path="/diner" element={<Diner />} />
+            <Route path="/diner" element={<Diner />} />
             <Route path="/wijnen" element={<Wijnen />} />
+            <Route path="/dranken" element={<Dranken />} />
             <Route path="/sfeer" element={<Sfeer />} />
             <Route path="/groepen" element={<Groepen />} />
             <Route path="/contact" element={<Contact />} />

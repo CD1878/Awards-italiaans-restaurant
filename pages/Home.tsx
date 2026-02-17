@@ -13,11 +13,11 @@ export const Home: React.FC = () => {
             {/* HERO SECTION */}
             <section className="relative pt-32 pb-20 md:pt-48 md:pb-32 px-4 overflow-hidden">
                 <div className="container mx-auto">
-                    <div className="max-w-4xl mx-auto text-center mb-16 md:mb-24 animate-fade-in">
-                        <h1 className="font-serif text-4xl md:text-6xl lg:text-7xl leading-tight mb-6">
+                    <div className="max-w-4xl mx-auto text-center mb-16 md:mb-24 animate-fade-in relative z-10">
+                        <h1 className="font-serif text-4xl md:text-6xl lg:text-7xl leading-tight mb-6 tracking-wide drop-shadow-sm">
                             {t.home.hero.title}
                         </h1>
-                        <p className="text-xl md:text-2xl text-diodona-green/80 mb-2">{t.home.hero.subtitle}</p>
+                        <p className="text-xl md:text-2xl text-diodona-green/80 mb-2 font-light">{t.home.hero.subtitle}</p>
                     </div>
 
                     {/* Staggered Images Grid */}
@@ -61,7 +61,7 @@ export const Home: React.FC = () => {
             <section className="py-12 md:py-32 bg-diodona-green text-diodona-beige transition-colors duration-1000">
                 <div className="container mx-auto px-4 md:px-12">
                     <div className="max-w-4xl mx-auto space-y-12">
-                        <h2 className="font-serif text-4xl md:text-5xl mb-8">{t.home.intro.title}</h2>
+                        <h2 className="font-serif text-4xl md:text-5xl mb-8 tracking-wide">{t.home.intro.title}</h2>
                         <p className="font-serif text-xl md:text-2xl leading-relaxed opacity-90">
                             {t.home.intro.textPart1} <Link to="/lunch" className="underline hover:opacity-70 transition-opacity">{t.home.intro.linkLunch}</Link>{t.home.intro.textPart2} <Link to="/diner" className="underline hover:opacity-70 transition-opacity">{t.home.intro.linkDiner}</Link> {t.home.intro.textPart3}
                         </p>
@@ -78,7 +78,7 @@ export const Home: React.FC = () => {
 
                         <div className="grid md:grid-cols-3 gap-8 pt-12">
                             <div>
-                                <h4 className="font-serif text-xl mb-4 uppercase tracking-wide">{t.home.cards.lunch.title}</h4>
+                                <h4 className="font-serif text-xl mb-4 uppercase tracking-widest text-diodona-beige/90">{t.home.cards.lunch.title}</h4>
                                 <p className="opacity-80 mb-6">
                                     {t.home.cards.lunch.text}
                                 </p>
@@ -88,7 +88,7 @@ export const Home: React.FC = () => {
                             </div>
 
                             <div>
-                                <h4 className="font-serif text-xl mb-4 uppercase tracking-wide">{t.home.cards.diner.title}</h4>
+                                <h4 className="font-serif text-xl mb-4 uppercase tracking-widest text-diodona-beige/90">{t.home.cards.diner.title}</h4>
                                 <p className="opacity-80 mb-6">
                                     {t.home.cards.diner.text}
                                 </p>
@@ -98,7 +98,7 @@ export const Home: React.FC = () => {
                             </div>
 
                             <div>
-                                <h4 className="font-serif text-xl mb-4 uppercase tracking-wide">{t.home.cards.wines.title}</h4>
+                                <h4 className="font-serif text-xl mb-4 uppercase tracking-widest text-diodona-beige/90">{t.home.cards.wines.title}</h4>
                                 <p className="opacity-80 mb-6">
                                     {t.home.cards.wines.text}
                                 </p>
@@ -123,7 +123,7 @@ export const Home: React.FC = () => {
                                     rotation={-1.5}
                                     className="aspect-[2/3] w-full"
                                 />
-                                <div className="absolute -bottom-10 -right-10 md:-right-20 bg-white p-6 shadow-xl max-w-xs transform rotate-2 hidden md:block">
+                                <div className="absolute -bottom-10 -right-10 md:-right-20 bg-white/90 backdrop-blur-md p-6 shadow-xl max-w-xs transform rotate-2 hidden md:block border border-white/50">
                                     <p className="font-script text-3xl text-diodona-green mb-2">{t.home.kitchen.quote1}</p>
                                     <p className="font-script text-3xl text-diodona-green pl-8">{t.home.kitchen.quote2}</p>
                                 </div>

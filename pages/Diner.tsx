@@ -3,15 +3,17 @@ import { Button } from '../components/Button';
 import { Link } from 'react-router-dom';
 import { useLanguage } from '../context/LanguageContext';
 import { MenuItem } from '../components/MenuItem';
+import { getMenuData } from '../utils/menuData';
 
 export const Diner: React.FC = () => {
     const { t } = useLanguage();
+    const menuData = getMenuData();
 
     return (
         <main>
             <section className="pt-32 pb-20 md:pt-48 md:pb-32 px-4 bg-diodona-beige">
                 <div className="container mx-auto max-w-5xl">
-                    <h1 className="font-serif text-5xl md:text-7xl text-diodona-green mb-8 text-center">
+                    <h1 className="font-serif text-5xl md:text-7xl text-diodona-green mb-8 text-center tracking-wide">
                         {t.diner.title}
                     </h1>
 
@@ -23,146 +25,86 @@ export const Diner: React.FC = () => {
                     <div className="space-y-16">
                         {/* Antipasti */}
                         <div>
-                            <h2 className="font-serif text-3xl text-diodona-green mb-8 pb-4 border-b-2 border-diodona-green/20">
+                            <h2 className="font-serif text-3xl text-diodona-green mb-8 pb-4 border-b-2 border-diodona-green/20 tracking-wide">
                                 {t.diner.sections.antipasti}
                             </h2>
                             <div className="space-y-6">
-                                <MenuItem
-                                    name="Burrata con Pomodori"
-                                    description="Romige burrata met erfgoedtomaten, basilicum en balsamico"
-                                    price="16,50"
-                                />
-                                <MenuItem
-                                    name="Carpaccio di Manzo"
-                                    description="Rundercarpaccio met rucola, Parmezaanse kaas en truffelmayonaise"
-                                    price="17,50"
-                                />
-                                <MenuItem
-                                    name="Vitello Tonnato"
-                                    description="Kalfsvlees met tonijnsaus, kappertjes en rucola"
-                                    price="16,00"
-                                />
-                                <MenuItem
-                                    name="Polpo alla Griglia"
-                                    description="Gegrilde octopus met aardappelpuree en salsa verde"
-                                    price="19,50"
-                                />
+                                {menuData.diner.antipasti.map((item, index) => (
+                                    <MenuItem
+                                        key={index}
+                                        name={item.name}
+                                        description={item.description}
+                                        price={item.price}
+                                    />
+                                ))}
                             </div>
                         </div>
 
                         {/* Primi Piatti */}
                         <div>
-                            <h2 className="font-serif text-3xl text-diodona-green mb-8 pb-4 border-b-2 border-diodona-green/20">
+                            <h2 className="font-serif text-3xl text-diodona-green mb-8 pb-4 border-b-2 border-diodona-green/20 tracking-wide">
                                 {t.diner.sections.primi}
                             </h2>
                             <div className="space-y-6">
-                                <MenuItem
-                                    name="Ravioli della Nonna"
-                                    description="Huisgemaakte ravioli gevuld met ricotta en spinazie, salieboter"
-                                    price="19,50"
-                                />
-                                <MenuItem
-                                    name="Tagliatelle al Tartufo"
-                                    description="Verse tagliatelle met truffelcrème en Parmezaanse kaas"
-                                    price="22,50"
-                                />
-                                <MenuItem
-                                    name="Pappardelle al Ragù"
-                                    description="Brede linten pasta met langzaam gegaarde vleesragout"
-                                    price="20,00"
-                                />
-                                <MenuItem
-                                    name="Linguine alle Vongole"
-                                    description="Linguine met verse venusschelpen, knoflook en peterselie"
-                                    price="23,50"
-                                />
-                                <MenuItem
-                                    name="Risotto ai Funghi Porcini"
-                                    description="Romige risotto met eekhoorntjesbrood en Parmezaanse kaas"
-                                    price="21,50"
-                                />
+                                {menuData.diner.primi.map((item, index) => (
+                                    <MenuItem
+                                        key={index}
+                                        name={item.name}
+                                        description={item.description}
+                                        price={item.price}
+                                    />
+                                ))}
                             </div>
                         </div>
 
                         {/* Secondi Piatti */}
                         <div>
-                            <h2 className="font-serif text-3xl text-diodona-green mb-8 pb-4 border-b-2 border-diodona-green/20">
+                            <h2 className="font-serif text-3xl text-diodona-green mb-8 pb-4 border-b-2 border-diodona-green/20 tracking-wide">
                                 {t.diner.sections.secondi}
                             </h2>
                             <div className="space-y-6">
-                                <MenuItem
-                                    name="Branzino al Forno"
-                                    description="Hele zeebaars uit de oven met citroen en kruiden"
-                                    price="28,50"
-                                />
-                                <MenuItem
-                                    name="Tagliata di Manzo"
-                                    description="Gesneden biefstuk met rucola, Parmezaanse kaas en balsamico"
-                                    price="29,50"
-                                />
-                                <MenuItem
-                                    name="Ossobuco alla Milanese"
-                                    description="Kalfssukade met saffraan risotto"
-                                    price="32,00"
-                                />
-                                <MenuItem
-                                    name="Pollo alla Cacciatora"
-                                    description="Kip op jagers wijze met tomaten, olijven en rozemarijn"
-                                    price="24,50"
-                                />
+                                {menuData.diner.secondi.map((item, index) => (
+                                    <MenuItem
+                                        key={index}
+                                        name={item.name}
+                                        description={item.description}
+                                        price={item.price}
+                                    />
+                                ))}
                             </div>
                         </div>
 
                         {/* Contorni */}
                         <div>
-                            <h2 className="font-serif text-3xl text-diodona-green mb-8 pb-4 border-b-2 border-diodona-green/20">
+                            <h2 className="font-serif text-3xl text-diodona-green mb-8 pb-4 border-b-2 border-diodona-green/20 tracking-wide">
                                 {t.diner.sections.contorni}
                             </h2>
                             <div className="space-y-6">
-                                <MenuItem
-                                    name="Insalata Mista"
-                                    description="Gemengde seizoenssalade"
-                                    price="6,50"
-                                />
-                                <MenuItem
-                                    name="Patate al Forno"
-                                    description="Geroosterde aardappelen met rozemarijn"
-                                    price="6,50"
-                                />
-                                <MenuItem
-                                    name="Verdure Grigliate"
-                                    description="Gegrilde seizoensgroenten"
-                                    price="7,50"
-                                />
+                                {menuData.diner.contorni.map((item, index) => (
+                                    <MenuItem
+                                        key={index}
+                                        name={item.name}
+                                        description={item.description}
+                                        price={item.price}
+                                    />
+                                ))}
                             </div>
                         </div>
 
                         {/* Dolci */}
                         <div>
-                            <h2 className="font-serif text-3xl text-diodona-green mb-8 pb-4 border-b-2 border-diodona-green/20">
+                            <h2 className="font-serif text-3xl text-diodona-green mb-8 pb-4 border-b-2 border-diodona-green/20 tracking-wide">
                                 {t.diner.sections.dolci}
                             </h2>
                             <div className="space-y-6">
-                                <MenuItem
-                                    name="Tiramisù"
-                                    description="Klassiek Italiaans dessert met mascarpone en espresso"
-                                    price="9,50"
-                                />
-                                <MenuItem
-                                    name="Panna Cotta"
-                                    description="Romige panna cotta met vers fruit"
-                                    price="9,00"
-                                />
-                                <MenuItem
-                                    name="Affogato"
-                                    description="Vanille-ijs met espresso"
-                                    price="8,50"
-                                />
-                                <MenuItem
-                                    name="Cannoli Siciliani"
-                                    description="Siciliaanse cannoli gevuld met ricotta en pistache"
-                                    price="10,50"
-                                />
+                                {menuData.diner.dolci.map((item, index) => (
+                                    <MenuItem
+                                        key={index}
+                                        name={item.name}
+                                        description={item.description}
+                                        price={item.price}
+                                    />
+                                ))}
                             </div>
                         </div>
                     </div>

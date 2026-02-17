@@ -1,6 +1,9 @@
 import React from 'react';
 
+import { getMenuData } from '../utils/menuData';
+
 export const Wijnen: React.FC = () => {
+    const menuData = getMenuData();
     return (
         <main>
             <section className="pt-32 pb-20 md:pt-48 md:pb-32 px-4 bg-diodona-beige">
@@ -20,26 +23,16 @@ export const Wijnen: React.FC = () => {
                                 Witte Wijnen
                             </h2>
                             <div className="space-y-6">
-                                <WineItem
-                                    name="Pinot Grigio"
-                                    region="Friuli-Venezia Giulia"
-                                    description="Fris en fruitig met tonen van peer en citrus"
-                                    glass="7,50"
-                                    bottle="32,00"
-                                />
-                                <WineItem
-                                    name="Vermentino"
-                                    region="Sardegna"
-                                    description="Elegant met minerale tonen en een hint van amandel"
-                                    glass="8,50"
-                                    bottle="36,00"
-                                />
-                                <WineItem
-                                    name="Gavi di Gavi"
-                                    region="Piemonte"
-                                    description="Verfijnd met aroma's van witte bloemen en perzik"
-                                    bottle="42,00"
-                                />
+                                {menuData.wines.white.map((item, index) => (
+                                    <WineItem
+                                        key={index}
+                                        name={item.name}
+                                        region={item.region}
+                                        description={item.description}
+                                        glass={item.glass}
+                                        bottle={item.bottle}
+                                    />
+                                ))}
                             </div>
                         </div>
 
@@ -49,32 +42,16 @@ export const Wijnen: React.FC = () => {
                                 Rode Wijnen
                             </h2>
                             <div className="space-y-6">
-                                <WineItem
-                                    name="Chianti Classico"
-                                    region="Toscana"
-                                    description="Krachtig met tonen van kers en specerijen"
-                                    glass="8,00"
-                                    bottle="34,00"
-                                />
-                                <WineItem
-                                    name="Barolo"
-                                    region="Piemonte"
-                                    description="Complex en elegant met tannines en rode vruchten"
-                                    bottle="68,00"
-                                />
-                                <WineItem
-                                    name="Amarone della Valpolicella"
-                                    region="Veneto"
-                                    description="Vol en rijk met gedroogde vruchten en chocolade"
-                                    bottle="75,00"
-                                />
-                                <WineItem
-                                    name="Primitivo"
-                                    region="Puglia"
-                                    description="Fruitig en vol met tonen van pruim en kruiden"
-                                    glass="7,50"
-                                    bottle="32,00"
-                                />
+                                {menuData.wines.red.map((item, index) => (
+                                    <WineItem
+                                        key={index}
+                                        name={item.name}
+                                        region={item.region}
+                                        description={item.description}
+                                        glass={item.glass}
+                                        bottle={item.bottle}
+                                    />
+                                ))}
                             </div>
                         </div>
 
@@ -84,26 +61,16 @@ export const Wijnen: React.FC = () => {
                                 Rosé & Spumante
                             </h2>
                             <div className="space-y-6">
-                                <WineItem
-                                    name="Prosecco Superiore"
-                                    region="Valdobbiadene"
-                                    description="Fris en levendig met fijne bubbels"
-                                    glass="7,00"
-                                    bottle="30,00"
-                                />
-                                <WineItem
-                                    name="Franciacorta Brut"
-                                    region="Lombardia"
-                                    description="Elegante mousserende wijn met complexe aroma's"
-                                    bottle="52,00"
-                                />
-                                <WineItem
-                                    name="Rosato"
-                                    region="Toscana"
-                                    description="Zomers en fris met tonen van aardbei"
-                                    glass="7,50"
-                                    bottle="32,00"
-                                />
+                                {menuData.wines.rose_spumante.map((item, index) => (
+                                    <WineItem
+                                        key={index}
+                                        name={item.name}
+                                        region={item.region}
+                                        description={item.description}
+                                        glass={item.glass}
+                                        bottle={item.bottle}
+                                    />
+                                ))}
                             </div>
                         </div>
 

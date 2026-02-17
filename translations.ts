@@ -21,6 +21,10 @@ export const translations = {
         announcement: {
             text: 'Chiel is Koning'
         },
+        drinks: {
+            title: 'Dranken',
+            intro: 'Geniet van een verfrissend drankje, een mooi speciaalbier of sluit af met een Italiaanse digestief.'
+        },
         home: {
             hero: {
                 title: 'fine dining met een Italiaanse twist',

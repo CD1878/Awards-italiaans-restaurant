@@ -29,7 +29,7 @@ export const Popup: React.FC = () => {
                     <img
                         src="/images/king.png"
                         alt="Royal Chiel"
-                        className="w-full h-full object-cover"
+                        className="w-full h-full object-cover border-[20px] border-white box-border"
                     />
                 </div>
 

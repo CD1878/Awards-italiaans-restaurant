@@ -1,0 +1,91 @@
+{
+    "name": "WhatsApp Menu Updater",
+    "nodes": [
+        {
+            "parameters": {
+                "httpMethod": "POST",
+                "path": "webhook",
+                "options": {}
+            },
+            "type": "n8n-nodes-base.webhook",
+            "typeVersion": 1,
+            "position": [
+                0,
+                0
+            ],
+            "id": "webhook-trigger",
+            "name": "WhatsApp Webhook"
+        },
+        {
+            "parameters": {
+                "model": "gpt-4o",
+                "messages": {
+                    "values": [
+                        {
+                            "content": "Jij bent een assistent die menu-kaarten digitaliseert. \nIk stuur je een afbeelding of PDF van een menukaart.\nJij moet de gerechten extraheren en formatteren als JSON, PRECIES zoals in het voorbeeld hieronder.\n\nStuur ALLEEN de JSON terug, geen markdown, geen andere tekst.\n\nStructuur voorbeeld:\n{\n  \"lunch\": {\n    \"antipasti\": [{ \"name\": \"...\", \"description\": \"...\", \"price\": \"...\" }]\n  },\n  \"diner\": { ... },\n  \"wines\": { ... }\n}\n\nZorg dat je bestaande categorieën respecteert (lunch, diner, wines).",
+                            "role": "system"
+                        },
+                        {
+                            "content": "Hier is de nieuwe menukaart. Update het bestand.",
+                            "role": "user"
+                        }
+                    ]
+                },
+                "jsonOutput": true
+            },
+            "type": "@n8n/n8n-nodes-langchain.chainOpenAi",
+            "typeVersion": 1,
+            "position": [
+                220,
+                0
+            ],
+            "id": "openai-parser",
+            "name": "AI Menu Parser"
+        },
+        {
+            "parameters": {
+                "authentication": "oAuth2",
+                "resource": "file",
+                "operation": "edit",
+                "owner": "JOUW_GITHUB_USERNAME",
+                "repository": "JOUW_REPO_NAAM",
+                "filePath": "data/menu.json",
+                "binaryData": false,
+                "fileContent": "={{ $json.output }}",
+                "commitMessage": "Auto-update menu via WhatsApp 🤖"
+            },
+            "type": "n8n-nodes-base.github",
+            "typeVersion": 1,
+            "position": [
+                440,
+                0
+            ],
+            "id": "github-updater",
+            "name": "Update GitHub"
+        }
+    ],
+    "connections": {
+        "WhatsApp Webhook": {
+            "main": [
+                [
+                    {
+                        "node": "AI Menu Parser",
+                        "type": "main",
+                        "index": 0
+                    }
+                ]
+            ]
+        },
+        "AI Menu Parser": {
+            "main": [
+                [
+                    {
+                        "node": "Update GitHub",
+                        "type": "main",
+                        "index": 0
+                    }
+                ]
+            ]
+        }
+    }
+}

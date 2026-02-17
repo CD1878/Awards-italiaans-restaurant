@@ -3,9 +3,11 @@ import { Button } from '../components/Button';
 import { Link } from 'react-router-dom';
 import { useLanguage } from '../context/LanguageContext';
 import { MenuItem } from '../components/MenuItem';
+import { getMenuData } from '../utils/menuData';
 
 export const Lunch: React.FC = () => {
     const { t } = useLanguage();
+    const menuData = getMenuData();
 
     return (
         <main>
@@ -27,21 +29,14 @@ export const Lunch: React.FC = () => {
                                 {t.lunch.sections.antipasti}
                             </h2>
                             <div className="space-y-6">
-                                <MenuItem
-                                    name="Burrata con Pomodori"
-                                    description="Romige burrata met erfgoedtomaten, basilicum en balsamico"
-                                    price="14,50"
-                                />
-                                <MenuItem
-                                    name="Carpaccio di Manzo"
-                                    description="Rundercarpaccio met rucola, Parmezaanse kaas en truffelmayonaise"
-                                    price="15,50"
-                                />
-                                <MenuItem
-                                    name="Vitello Tonnato"
-                                    description="Kalfsvlees met tonijnsaus, kappertjes en rucola"
-                                    price="14,00"
-                                />
+                                {menuData.lunch.antipasti.map((item, index) => (
+                                    <MenuItem
+                                        key={index}
+                                        name={item.name}
+                                        description={item.description}
+                                        price={item.price}
+                                    />
+                                ))}
                             </div>
                         </div>
 
@@ -51,26 +46,14 @@ export const Lunch: React.FC = () => {
                                 {t.lunch.sections.pasta}
                             </h2>
                             <div className="space-y-6">
-                                <MenuItem
-                                    name="Ravioli della Nonna"
-                                    description="Huisgemaakte ravioli gevuld met ricotta en spinazie, salieboter"
-                                    price="16,50"
-                                />
-                                <MenuItem
-                                    name="Tagliatelle al Tartufo"
-                                    description="Verse tagliatelle met truffelcrème en Parmezaanse kaas"
-                                    price="18,50"
-                                />
-                                <MenuItem
-                                    name="Pappardelle al Ragù"
-                                    description="Brede linten pasta met langzaam gegaarde vleesragout"
-                                    price="17,00"
-                                />
-                                <MenuItem
-                                    name="Linguine alle Vongole"
-                                    description="Linguine met verse venusschelpen, knoflook en peterselie"
-                                    price="19,50"
-                                />
+                                {menuData.lunch.pasta.map((item, index) => (
+                                    <MenuItem
+                                        key={index}
+                                        name={item.name}
+                                        description={item.description}
+                                        price={item.price}
+                                    />
+                                ))}
                             </div>
                         </div>
 
@@ -80,16 +63,14 @@ export const Lunch: React.FC = () => {
                                 {t.lunch.sections.insalate}
                             </h2>
                             <div className="space-y-6">
-                                <MenuItem
-                                    name="Insalata Caprese"
-                                    description="Tomaat, mozzarella, basilicum en olijfolie"
-                                    price="13,50"
-                                />
-                                <MenuItem
-                                    name="Insalata di Pollo"
-                                    description="Gemengde salade met gegrilde kip, avocado en balsamico dressing"
-                                    price="15,50"
-                                />
+                                {menuData.lunch.insalate.map((item, index) => (
+                                    <MenuItem
+                                        key={index}
+                                        name={item.name}
+                                        description={item.description}
+                                        price={item.price}
+                                    />
+                                ))}
                             </div>
                         </div>
 
@@ -99,16 +80,14 @@ export const Lunch: React.FC = () => {
                                 {t.lunch.sections.dolci}
                             </h2>
                             <div className="space-y-6">
-                                <MenuItem
-                                    name="Tiramisù"
-                                    description="Klassiek Italiaans dessert met mascarpone en espresso"
-                                    price="8,50"
-                                />
-                                <MenuItem
-                                    name="Panna Cotta"
-                                    description="Romige panna cotta met vers fruit"
-                                    price="8,00"
-                                />
+                                {menuData.lunch.dolci.map((item, index) => (
+                                    <MenuItem
+                                        key={index}
+                                        name={item.name}
+                                        description={item.description}
+                                        price={item.price}
+                                    />
+                                ))}
                             </div>
                         </div>
                     </div>

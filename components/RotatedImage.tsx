@@ -41,7 +41,7 @@ export const RotatedImage: React.FC<RotatedImageProps> = ({
   return (
     <div
       ref={ref}
-      className={`relative shadow-xl transition-all duration-700 ease-out hover:scale-105 ${isVisible ? 'animate-fade-in opacity-100' : 'opacity-0'} ${className}`}
+      className={`relative shadow-xl transition-all duration-700 ease-out hover:scale-105 border-[20px] border-white ${isVisible ? 'animate-fade-in opacity-100' : 'opacity-0'} ${className}`}
       style={{
         transform: `rotate(${rotation}deg)`,
       }}

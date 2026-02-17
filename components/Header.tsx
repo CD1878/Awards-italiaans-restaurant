@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { ShoppingBag, Menu, X } from 'lucide-react';
+import { ShoppingBag, Menu, X, ChevronDown } from 'lucide-react';
 import { Button } from './Button';
 import { Link } from 'react-router-dom';
 import { useLanguage } from '../context/LanguageContext';
@@ -37,7 +37,7 @@ export const Header: React.FC = () => {
         )}
 
         {/* Main Header Content */}
-        <div className={`w-full transition-all duration-300 ${isScrolled ? 'py-2 bg-diodona-beige/95 backdrop-blur-sm shadow-sm' : 'py-6 bg-transparent'}`}>
+        <div className={`w-full transition-all duration-300 ${isScrolled ? 'py-2 bg-diodona-beige/80 backdrop-blur-md shadow-sm border-b border-white/20' : 'py-6 bg-transparent'}`}>
           <div className="container mx-auto px-4 md:px-8 flex justify-between items-center">
             {/* Logo */}
             <div className="flex-shrink-0">
@@ -57,11 +57,49 @@ export const Header: React.FC = () => {
             <div className="flex items-center gap-4">
               {/* Desktop Navigation */}
               <div className="hidden md:flex items-center gap-8 mr-4">
-                <Link to="/diner" className="text-diodona-green hover:opacity-70 transition-opacity font-serif">{t.header.menu}</Link>
-                <Link to="/evenementen" className="text-diodona-green hover:opacity-70 transition-opacity font-serif">Evenementen</Link>
-                <Link to="/groepen" className="text-diodona-green hover:opacity-70 transition-opacity font-serif">{t.header.groups}</Link>
-                <Link to="/sfeer" className="text-diodona-green hover:opacity-70 transition-opacity font-serif">{t.header.gallery}</Link>
-                <Link to="/contact" className="text-diodona-green hover:opacity-70 transition-opacity font-serif">{t.header.contact}</Link>
+
+                {/* Menu Dropdown */}
+                <div className="relative group">
+                  <button className="flex items-center gap-1 text-diodona-green py-1 font-serif group-hover:text-diodona-green/70 transition-colors">
+                    <span className="relative z-10">{t.header.menu}</span>
+                    <ChevronDown size={14} className="transform group-hover:rotate-180 transition-transform duration-300" />
+                  </button>
+
+                  {/* Dropdown Content */}
+                  <div className="absolute top-full left-1/2 transform -translate-x-1/2 pt-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 min-w-[180px]">
+                    <div className="bg-diodona-beige shadow-lg border border-diodona-green/10 rounded-sm overflow-hidden py-2 flex flex-col">
+                      <Link to="/lunch" className="px-6 py-2 text-diodona-green hover:bg-diodona-green/5 font-serif text-center transition-colors">
+                        Lunch
+                      </Link>
+                      <Link to="/diner" className="px-6 py-2 text-diodona-green hover:bg-diodona-green/5 font-serif text-center transition-colors">
+                        Diner
+                      </Link>
+                      <div className="h-[1px] bg-diodona-green/10 my-1 mx-4"></div>
+                      <Link to="/wijnen" className="px-6 py-2 text-diodona-green hover:bg-diodona-green/5 font-serif text-center transition-colors">
+                        Wijnen
+                      </Link>
+                      <Link to="/dranken" className="px-6 py-2 text-diodona-green hover:bg-diodona-green/5 font-serif text-center transition-colors">
+                        Dranken
+                      </Link>
+                    </div>
+                  </div>
+                </div>
+                <Link to="/evenementen" className="relative group text-diodona-green py-1 font-serif">
+                  <span className="relative z-10 transition-colors group-hover:text-diodona-green/70">Evenementen</span>
+                  <span className="absolute bottom-0 left-0 w-full h-[1px] bg-diodona-green transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></span>
+                </Link>
+                <Link to="/groepen" className="relative group text-diodona-green py-1 font-serif">
+                  <span className="relative z-10 transition-colors group-hover:text-diodona-green/70">{t.header.groups}</span>
+                  <span className="absolute bottom-0 left-0 w-full h-[1px] bg-diodona-green transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></span>
+                </Link>
+                <Link to="/sfeer" className="relative group text-diodona-green py-1 font-serif">
+                  <span className="relative z-10 transition-colors group-hover:text-diodona-green/70">{t.header.gallery}</span>
+                  <span className="absolute bottom-0 left-0 w-full h-[1px] bg-diodona-green transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></span>
+                </Link>
+                <Link to="/contact" className="relative group text-diodona-green py-1 font-serif">
+                  <span className="relative z-10 transition-colors group-hover:text-diodona-green/70">{t.header.contact}</span>
+                  <span className="absolute bottom-0 left-0 w-full h-[1px] bg-diodona-green transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></span>
+                </Link>
               </div>
 
               {/* Language Switcher (Desktop Only) */}
@@ -123,6 +161,9 @@ export const Header: React.FC = () => {
               </Link>
               <Link to="/wijnen" onClick={() => setIsMenuOpen(false)} className="text-xl md:text-2xl font-serif text-diodona-green hover:translate-x-2 transition-transform duration-300 block">
                 Wijnen
+              </Link>
+              <Link to="/dranken" onClick={() => setIsMenuOpen(false)} className="text-xl md:text-2xl font-serif text-diodona-green hover:translate-x-2 transition-transform duration-300 block">
+                Dranken
               </Link>
               <Link to="/evenementen" onClick={() => setIsMenuOpen(false)} className="text-xl md:text-2xl font-serif text-diodona-green hover:translate-x-2 transition-transform duration-300 block">
                 Evenementen
